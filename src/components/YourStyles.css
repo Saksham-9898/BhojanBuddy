@@ -1,0 +1,80 @@
+.why-choose-us {
+    padding: 60px 40px;
+    background: #fef9f1;
+    text-align: center;
+  }
+  
+  .section-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #5b3a29;
+    margin-bottom: 10px;
+  }
+  
+  .section-subtitle {
+    font-size: 18px;
+    color: #777;
+    margin-bottom: 40px;
+  }
+  
+  .features-grid {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  
+  .feature-card {
+    background: #fff7e6;
+    padding: 30px 20px;
+    border-radius: 15px;
+    width: 250px;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .feature-icon {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+  }
+  
+  .feature-card h3 {
+    font-size: 20px;
+    color: #5b3a29;
+    margin-bottom: 10px;
+  }
+  
+  .feature-card p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  .call-to-action {
+    font-size: 18px;
+    color: #5b3a29;
+    margin-bottom: 20px;
+  }
+  
+  .join-btn {
+    padding: 12px 30px;
+    background-color: #f4c430;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 16px;
+    color: #5b3a29;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .join-btn:hover {
+    background-color: #e5b825;
+  }
+  

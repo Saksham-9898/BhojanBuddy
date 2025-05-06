@@ -1,0 +1,59 @@
+.hero-section {
+    width: 100%;
+    height: 100vh;
+    background: url('/Coffeemain.png') no-repeat center center/cover;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+  
+  .hero-content {
+    position: absolute;
+    top: 30%;
+    left: 10%;
+    color: white;
+    max-width: 600px;
+    z-index: 2;
+  }
+  
+  .hero-content h1 {
+    font-size: 80px;
+    font-family: 'Great Vibes', cursive;
+  }
+  
+  .hero-content h4 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .hero-content p {
+    font-size: 18px;
+    margin-top: 20px;
+    line-height: 1.6;
+  }
+  
+  .order-now-button {
+    margin-top: 30px;
+    padding: 12px 30px;
+    background-color: #f4c430;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .order-now-button:hover {
+    background-color: #e5b825;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+  }
+  
