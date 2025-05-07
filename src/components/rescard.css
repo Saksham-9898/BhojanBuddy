@@ -84,4 +84,14 @@
   .order-now-btn:hover {
     background-color: #e5b825;
   }
+
+  @media (max-width: 768px) {
+    .coffee-carousel {
+      flex-direction: column;
+      gap: 15px;
+    }
   
+    .coffee-card {
+      min-width: 100%;
+    }
+  }

@@ -59,4 +59,14 @@
     color: #5b3a29;
     font-weight: bold;
   }
-  
+
+  @media (max-width: 768px) {
+    .testimonial-scroll-container {
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .testimonial-card {
+      width: 100%;
+    }
+  }
