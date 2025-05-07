@@ -7,8 +7,8 @@ function Footer() {
     <footer className='footer'>
     <div className="footer-columns">
     <div className='company-brand'>
-        <h2>Cafe scene</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto praesentium perspiciatis autem, cupiditate, minima harum odit neque cum tempora excepturi et assumenda quae explicabo nesciunt facilis hic obcaecati quasi libero!</p>
+        <h2>Bhojan Buddy</h2>
+        <p>Discover top-rated restaurants near you by filtering your favorite cuisines. Quick, simple, and made for food lovers on the go.</p>
     </div>
     <div>
         <h3>Quick links</h3>
@@ -23,9 +23,9 @@ function Footer() {
     <div>
         <h3>Contact</h3>
         <ul>
-            <li> Email: support@cafefinder.com</li>
+            <li> Email: support@bhojanbuddy.com</li>
             <li> Phone: +1-234-567-8910</li>
-            <li> Location: Somewhere on Earth</li>
+            <li> Location: Rishihood University</li>
         </ul>
     </div>
     <div>
@@ -38,7 +38,7 @@ function Footer() {
 
 
     <div className="footer-bottom">
-        &copy; 2025 CafeFinder. All rights reserved.
+        &copy; 2025 Bhojan Buddy. All rights reserved.
       </div>
     </div>
     </footer>

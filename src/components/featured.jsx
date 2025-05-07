@@ -1,6 +1,6 @@
 import React from 'react';
-import CoffeeCard from './coffeecard';
-import './coffeecard.css';
+import Rescard from './rescard';
+import './rescard.css';
 
 function CoffeeCarousel() {
   const coffees = [
@@ -38,7 +38,7 @@ function CoffeeCarousel() {
       Explore top-rated restaurants offering global tastes—because great food has no borders.      </p>
       <div className="coffee-carousel">
         {coffees.map((coffee, index) => (
-          <CoffeeCard
+          <Rescard
             key={index}
             image={coffee.image}
             name={coffee.name}

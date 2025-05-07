@@ -1,5 +1,5 @@
 
-import CoffeeCarousel from './CoffeeCarousel'
+import CoffeeCarousel from './featured'
 import WhyChooseUs from './WhyChooseUs'
 import TestimonialCarousel from './TestimonialCarousel'
 import Footer from './Footer'

@@ -1,7 +1,7 @@
 import React from 'react';
-import './coffeecard.css';
+import './rescard.css';
 
-function CoffeeCard({ image, name, description,  }) {
+function Rescard({ image, name, description,  }) {
   return (
     <div className="coffee-card">
       <img src={image} alt={name} className="coffee-image" />
@@ -15,4 +15,4 @@ function CoffeeCard({ image, name, description,  }) {
   );
 }
 
-export default CoffeeCard;
+export default Rescard;
