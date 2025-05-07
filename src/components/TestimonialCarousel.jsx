@@ -3,23 +3,23 @@ import './testimonial.css';
 
 const testimonials = [
   {
-    name: 'Alice Johnson',
-    review: 'The coffee is absolutely amazing! Best café in town!',
+    name: 'Vishal Sharma',
+    review: 'I found an amazing Thai spot just 5 minutes from home — all thanks to this app!',
     image: '/review1.avif'
   },
   {
-    name: 'Sophie Lee',
-    review: 'A cozy atmosphere and incredible coffee flavors.',
+    name: 'Rahul Kumar',
+    review: 'No more endless scrolling. I just filter by cuisine and rating — works like magic!',
     image: '/review2.avif'
   },
   {
-    name: 'David Smith',
-    review: 'Fast service and great taste! I love their espresso.',
+    name: 'Bhavesh Bansal',
+    review: 'Perfect for foodies! I’ve discovered so many hidden gems I never knew existed.',
     image: '/review.avif'
   },
   {
-    name: 'Mark Brown',
-    review: 'The best place to chill and work while sipping great coffee.',
+    name: 'Nishchal Gupta',
+    review: 'Quick, simple, and super accurate. My go-to app whenever I’m hungry!',
     image: '/review3.avif'
   },
 ];
