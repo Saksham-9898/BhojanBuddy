@@ -8,7 +8,7 @@ const testimonials = [
     image: '/review1.avif'
   },
   {
-    name: 'Rahul Kumar',
+    name: 'Swati Mehta',
     review: 'No more endless scrolling. I just filter by cuisine and rating — works like magic!',
     image: '/review2.avif'
   },
@@ -27,7 +27,7 @@ const testimonials = [
 function TestimonialCarousel() {
   return (
     <div className="testimonial-section">
-      <h2 className="testimonial-title">What Our Customers Say</h2>
+      <h2 className="testimonial-title">Customer Reviews</h2>
       <div className="testimonial-scroll-container">
         {testimonials.map((testimonial, index) => (
           <div className="testimonial-card" key={index}>
