@@ -42,7 +42,7 @@
   .order-now-button {
     margin-top: 30px;
     padding: 12px 30px;
-    background-color: #f4c430;
+    background-color: #ff8000;
     border: none;
     border-radius: 25px;
     font-size: 16px;
@@ -52,7 +52,7 @@
   }
   
   .order-now-button:hover {
-    background-color: #e5b825;
+    background-color: #ff6a00;
     transform: scale(1.05);
     transition: all 0.3s ease;
   }

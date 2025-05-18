@@ -1,19 +1,19 @@
 .why-choose-us {
     padding: 60px 40px;
-    background: #fef9f1;
+    background: var(--primary-bg);
     text-align: center;
   }
   
   .section-title {
     font-size: 36px;
     font-weight: bold;
-    color: #5b3a29;
+    color: var(--accent);
     margin-bottom: 10px;
   }
   
   .section-subtitle {
     font-size: 18px;
-    color: #777;
+    color: var(--muted-text);
     margin-bottom: 40px;
   }
   
@@ -26,17 +26,50 @@
   }
   
   .feature-card {
-    background: #fff7e6;
+    width: 350px;
+    min-width: 350px;
+    max-width: 350px;
+    background: var(--card-bg);
     padding: 30px 20px;
-    border-radius: 15px;
-    width: 250px;
+    border-radius: 20px;
     text-align: center;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
-    transition: transform 0.3s;
+    box-shadow: 0 8px 20px rgba(10,17,33,0.10);
+    transition: box-shadow 0.3s, transform 0.3s, border 0.3s, width 0.3s, min-width 0.3s, max-width 0.3s;
+    will-change: transform, box-shadow, width;
+    animation: featurePopIn 0.7s cubic-bezier(.34,1.56,.64,1) both;
+    position: relative;
+    z-index: 1;
+    color: var(--primary-text);
+    box-sizing: border-box;
+    overflow: hidden;
+    border: 3px solid transparent;
   }
   
   .feature-card:hover {
-    transform: translateY(-5px);
+    width: 420px;
+    min-width: 420px;
+    max-width: 420px;
+    transform: translateY(-10px) rotate(-1deg);
+    box-shadow: 0 0 60px 0 #ff800055, 0 2px 8px 0 #e81cff33;
+    border: 3px solid #ff8000;
+    z-index: 2;
+    background: var(--card-bg);
+  }
+  
+  .feature-card:active {
+    transform: scale(0.98) rotate(0deg);
+    box-shadow: 0 4px 12px 0 #40c9ff33;
+  }
+  
+  @keyframes featurePopIn {
+    0% {
+      opacity: 0;
+      transform: scale(0.95) translateY(40px);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1) translateY(0);
+    }
   }
   
   .feature-icon {
@@ -47,34 +80,47 @@
   
   .feature-card h3 {
     font-size: 20px;
-    color: #5b3a29;
+    color: var(--accent);
     margin-bottom: 10px;
   }
   
   .feature-card p {
     font-size: 14px;
-    color: #777;
+    color: var(--muted-text);
   }
   
   .call-to-action {
     font-size: 18px;
-    color: #5b3a29;
+    color: var(--accent);
     margin-bottom: 20px;
   }
   
   .join-btn {
     padding: 12px 30px;
-    background-color: #f4c430;
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
     border: none;
     border-radius: 30px;
     font-weight: bold;
     font-size: 16px;
-    color: #5b3a29;
+    color: var(--primary-bg);
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background 0.3s;
   }
   
   .join-btn:hover {
-    background-color: #e5b825;
+    background: linear-gradient(90deg, var(--accent-hover), var(--accent));
+    color: var(--primary-text);
   }
   
+  @media (max-width: 900px) {
+    .feature-card {
+      width: 90vw;
+      min-width: 90vw;
+      max-width: 95vw;
+    }
+    .feature-card:hover {
+      width: 95vw;
+      min-width: 95vw;
+      max-width: 98vw;
+    }
+  }

@@ -1,10 +1,10 @@
 .footer {
-  background-color: #f5e1c9;
-  color: #5d4037;
+  background-color: #101624;
+  color: #bfc7db;
   padding: 60px 40px 20px;
   font-family: 'Poppins', sans-serif;
-  border-top: 2px solid #e5caa2;
-  box-shadow: 0 -4px 30px rgba(96, 64, 38, 0.05);
+  border-top: 2px solid #232b3e;
+  box-shadow: 0 -4px 30px rgba(16, 22, 36, 0.12);
 }
 
 .footer-columns {
@@ -17,20 +17,20 @@
 
 .company-brand h2 {
   font-size: 1.9rem;
-  color: #4e342e;
+  color: #ff8000;
   margin-bottom: 10px;
   font-weight: 700;
 }
 
 .company-brand p {
   font-size: 1rem;
-  color: #6f4e37;
+  color: #bfc7db;
   line-height: 1.6;
 }
 
 .footer-columns h3 {
   font-size: 1.25rem;
-  color: #6d3c26;
+  color: #ff8000;
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -43,18 +43,18 @@
 .footer-columns li {
   margin-bottom: 10px;
   font-size: 0.95rem;
-  color: #6f4e37;
+  color: #bfc7db;
   transition: color 0.3s ease;
 }
 
 .footer-columns a {
   text-decoration: none;
-  color: #6f4e37;
+  color: #bfc7db;
   font-weight: 500;
 }
 
 .footer-columns a:hover {
-  color: #f0aa2f;
+  color: #ff8000;
   text-decoration: underline;
 }
 
@@ -62,8 +62,8 @@
   margin-top: 50px;
   text-align: center;
   font-size: 0.85rem;
-  color: #5d4037;
-  border-top: 1px solid #ddb892;
+  color: #bfc7db;
+  border-top: 1px solid #232b3e;
   padding-top: 20px;
 }
 
