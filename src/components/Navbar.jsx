@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
 
 function Navbar() {
+  const [showLogin, setShowLogin] = useState(false);
+  const [showSignup, setShowSignup] = useState(false);
+
+  const handleLoginClick = () => setShowLogin(true);
+  const handleSignupClick = () => setShowSignup(true);
+  const closeModal = () => {
+    setShowLogin(false);
+    setShowSignup(false);
+  };
+
   return (
     <>
       <nav className='navbar'>
@@ -24,11 +34,36 @@ function Navbar() {
 
         
         <div className="nav-buttons">
-          <button className="signin-btn">Log In</button>
-          <button className="signup-btn">Sign Up</button>
+          <button className="signin-btn" onClick={handleLoginClick}>Log In</button>
+          <button className="signup-btn" onClick={handleSignupClick}>Sign Up</button>
         </div>
       </nav>
 
+      {/* Login Modal */}
+      {showLogin && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <h2>Login</h2>
+            <input type="text" placeholder="Username" className="modal-input" />
+            <input type="password" placeholder="Password" className="modal-input" />
+            <button className="modal-btn">Log In</button>
+            <button className="modal-close" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
+      {/* Signup Modal */}
+      {showSignup && (
+        <div className="modal-overlay" onClick={closeModal}>
+          <div className="modal" onClick={e => e.stopPropagation()}>
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Username" className="modal-input" />
+            <input type="email" placeholder="Email" className="modal-input" />
+            <input type="password" placeholder="Password" className="modal-input" />
+            <button className="modal-btn">Sign Up</button>
+            <button className="modal-close" onClick={closeModal}>Close</button>
+          </div>
+        </div>
+      )}
     </>
   );
 }
