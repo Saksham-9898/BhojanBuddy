@@ -17,7 +17,7 @@ function Footer() {
             <li><a>About us</a></li>
             <li><a>Contact</a></li>
             <li><a>Privacy policy</a></li>
-            <li><a>Terms and conditions</a></li>
+            <li><a>Terms & conditions</a></li>
         </ul>
     </div>
     <div>
