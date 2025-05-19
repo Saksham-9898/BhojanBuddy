@@ -30,20 +30,20 @@ const testimonials = [
 
 function TestimonialCarousel() {
 	return (
-		<div className="testimonial-section">
-			<h2 className="testimonial-title">Customer Reviews</h2>
-			<div className="testimonial-scroll-container">
+		<div className="testimonial-section glow-bg animate-fadeInUp">
+			<h2 className="testimonial-title animate-popIn">Customer Reviews</h2>
+			<div className="testimonial-scroll-container animate-fadeInUp">
 				{testimonials.map((testimonial, index) => (
-					<div className="testimonial-card" key={index}>
+					<div className="testimonial-card animate-fadeInLeft" key={index}>
 						<img
 							src={testimonial.image}
 							alt={testimonial.name}
-							className="testimonial-image"
+							className="testimonial-image animate-popIn"
 						/>
-						<p className="testimonial-review">
+						<p className="testimonial-review animate-fadeInUp">
 							"{testimonial.review}"
 						</p>
-						<h4 className="testimonial-name">- {testimonial.name}</h4>
+						<h4 className="testimonial-name animate-fadeInRight">- {testimonial.name}</h4>
 					</div>
 				))}
 			</div>

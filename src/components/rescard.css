@@ -21,8 +21,9 @@
     display: flex;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    gap: 20px;
+    gap: 40px; /* Increased gap for more space between cards */
     padding-bottom: 20px;
+    justify-content: center;
   }
   
   .coffee-carousel::-webkit-scrollbar {
@@ -120,185 +121,120 @@
   }
 
   .rescard {
-    margin: 0 auto;
-    background: transparent;
-    box-shadow: 0px 8px 28px -9px rgba(0,0,0,0.45);
-    position: relative;
+    background: var(--card-bg);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    border: 1.5px solid var(--card-border);
     width: 320px;
     min-height: 370px;
-    border-radius: 16px;
-    overflow: hidden;
+    margin: 0 0 24px 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-end;
+    transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
     padding: 0;
-    transition: transform 0.35s cubic-bezier(.34,1.56,.64,1), box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
   }
 
-  .wave {
-    position: absolute;
-    width: 540px;
-    height: 700px;
-    opacity: 0.6;
-    left: 0;
-    top: 0;
-    margin-left: -50%;
-    margin-top: -70%;
-    background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
-    border-radius: 40%;
-    animation: wave 55s infinite linear;
-    z-index: 1;
+  .rescard:hover {
+    box-shadow: 0 12px 32px 0 #ff6a00, 0 2px 8px 0 #e81cff33;
+    border: 2px solid #ff8000;
+    transform: translateY(-10px) scale(1.03) rotate(-1deg);
+    z-index: 2;
   }
 
-  .wave:nth-child(2),
-  .wave:nth-child(3) {
-    top: 210px;
-  }
-
-  .wave:nth-child(2) {
-    animation-duration: 50s;
-  }
-
-  .wave:nth-child(3) {
-    animation-duration: 45s;
-  }
-
-  .rescard.playing .wave {
-    animation: wave 3000ms infinite linear;
-  }
-
-  .rescard.playing .wave:nth-child(2) {
-    animation-duration: 4000ms;
-  }
-
-  .rescard.playing .wave:nth-child(3) {
-    animation-duration: 5000ms;
-  }
-
-  @keyframes wave {
-    0% {
-      transform: rotate(0deg);
-    }
-    100% {
-      transform: rotate(360deg);
-    }
+  .rescard-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   .rescard img {
     width: 100%;
     height: 200px;
     object-fit: cover;
-    border-top-left-radius: 16px;
-    border-top-right-radius: 16px;
+    border-top-left-radius: var(--border-radius);
+    border-top-right-radius: var(--border-radius);
     margin-bottom: 0;
-    z-index: 2;
-    position: relative;
+    background: #222;
   }
 
-  .rescard-title, .heading {
-    font-size: 20px;
+  .rescard-title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin: 18px 0 0 0;
+    text-align: center;
+    letter-spacing: 0.5px;
     text-transform: uppercase;
-    font-weight: 800;
-    color: #fff;
-    margin-bottom: 8px;
-    z-index: 2;
-    position: relative;
   }
 
-  .rescard p:not(.heading) {
-    font-size: 20px;
-    color: #000;
-  }
-
-  .rescard p:last-child {
-    color: #fff;
+  .rescard-desc {
+    color: var(--muted-text);
+    font-size: 1.08rem;
+    margin: 8px 0 0 0;
+    text-align: center;
   }
 
   .rescard-btn {
-    background: linear-gradient(90deg, #ff8000 60%, #ff6a00 100%);
-    color: #fff;
-    font-size: 1.15rem;
-    font-weight: 700;
+    background: var(--button-bg);
+    color: var(--button-text);
+    border-radius: var(--border-radius);
     border: none;
-    border-radius: 14px;
-    padding: 0.8rem 2.7rem;
-    margin: 1.4rem 0 1.7rem 0;
+    font-weight: 700;
+    padding: 18px 0;
+    margin: 32px 0 0 0;
+    width: 90%;
+    max-width: 240px;
+    font-size: 1.35rem;
+    box-shadow: 0 2px 8px #ff800022;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s, box-shadow 0.2s, transform 0.2s;
-    box-shadow: 0 2px 12px 0 #ff800022;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
     letter-spacing: 0.5px;
-    z-index: 2;
-    position: relative;
+    display: block;
   }
 
   .rescard-btn:hover {
-    background: linear-gradient(90deg, #ff6a00 0%, #ff8000 100%);
+    background: var(--button-bg-hover);
     color: #181f2f;
-    transform: scale(1.06);
     box-shadow: 0 4px 20px 0 #ff800044;
   }
 
-  @media (max-width: 1200px) {
-    .rescard-container {
-      flex-wrap: wrap;
-      gap: 2.2rem;
-    }
+  @media (max-width: 900px) {
     .rescard {
       width: 92vw;
       max-width: 370px;
     }
-  }
-
-  @media (max-width: 900px) {
-    .rescard-container {
-      flex-direction: column;
-      align-items: center;
-      gap: 2.2rem;
-    }
-    .rescard {
-      width: 90vw;
-      min-width: 90vw;
-      max-width: 95vw;
-    }
-  }
-
-  @media (max-width: 768px) {
-    .rescard-container {
+    .coffee-carousel {
       flex-direction: column;
       gap: 32px;
-      padding-bottom: 0;
+      align-items: center;
     }
+  }
+
+  @media (max-width: 600px) {
     .rescard {
       width: 100vw;
       min-width: 100vw;
       max-width: 100vw;
-      border-radius: 10px;
-      padding: 0 0 18px 0;
+      border-radius: 14px;
+      padding: 0 0 8px 0;
     }
     .rescard img {
-      height: 80px;
+      height: 120px;
+      border-top-left-radius: 12px;
+      border-top-right-radius: 12px;
     }
-    .rescard-title, .heading {
+    .rescard-title {
       font-size: 1rem;
     }
-  }
-
-  @media (max-width: 480px) {
-    .rescard-container {
-      padding: 30px 4vw 60px 4vw;
-    }
-    .rescard {
-      width: 98vw;
-      min-width: 98vw;
-      max-width: 99vw;
-      padding: 0 0 12px 0;
-    }
-    .rescard img {
-      height: 60px;
-    }
-    .rescard-title, .heading {
-      font-size: 0.95rem;
+    .rescard-btn {
+      font-size: 1.1rem;
+      padding: 12px 0;
+      border-radius: 10px;
+      margin: 18px 0 0 0;
     }
   }
 
@@ -332,4 +268,127 @@
 
   .rescard {
     animation: rescardPopIn 0.7s cubic-bezier(.34,1.56,.64,1) both;
+  }
+
+  .filter-section {
+    background: var(--secondary-bg);
+    border-radius: 20px;
+    padding: 36px 40px 32px 40px;
+    margin-bottom: 32px;
+    color: var(--primary-text);
+    box-shadow: 0 4px 24px rgba(10,17,33,0.10);
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    max-width: 98vw;
+  }
+
+  .filter-section h3 {
+    font-size: 1.6rem;
+    font-weight: 800;
+    color: #ff8000;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .filter-section label {
+    color: var(--secondary-text);
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-bottom: 8px;
+    display: block;
+  }
+
+  .filter-section select {
+    width: 100%;
+    background: var(--primary-bg);
+    color: var(--primary-text);
+    border: 2px solid var(--card-border);
+    border-radius: 12px;
+    padding: 14px 18px;
+    font-size: 1.1rem;
+    margin-top: 8px;
+    margin-bottom: 0;
+    outline: none;
+    transition: border 0.2s;
+  }
+  .filter-section select:focus {
+    border: 2px solid var(--accent);
+  }
+
+  .filter-section button,
+  .rescard-btn {
+    background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.35rem;
+    font-weight: 800;
+    padding: 22px 0;
+    margin-top: 18px;
+    width: 100%;
+    max-width: 240px;
+    box-shadow: 0 2px 8px #ff800022;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+    letter-spacing: 0.5px;
+  }
+  .filter-section button:hover,
+  .rescard-btn:hover {
+    background: linear-gradient(90deg, #ff8000 0%, #ff6a00 100%);
+    color: #181f2f;
+    box-shadow: 0 4px 20px 0 #ff800044;
+  }
+
+  .filter-section > div {
+    display: flex;
+    gap: 32px;
+    flex-wrap: wrap;
+    margin-top: 16px;
+  }
+
+  .filter-section > div > div {
+    flex: 1;
+    min-width: 260px;
+    max-width: 400px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media (max-width: 900px) {
+    .filter-section {
+      padding: 24px 12px 24px 12px;
+      gap: 12px;
+    }
+    .filter-section > div {
+      gap: 16px;
+    }
+    .filter-section > div > div {
+      min-width: 180px;
+      max-width: 100%;
+    }
+  }
+
+  @media (max-width: 600px) {
+    .filter-section {
+      padding: 14px 2vw 18px 2vw;
+      border-radius: 12px;
+    }
+    .filter-section h3 {
+      font-size: 1.1rem;
+    }
+    .filter-section label {
+      font-size: 1rem;
+    }
+    .filter-section select {
+      font-size: 1rem;
+      padding: 10px 8px;
+    }
+    .filter-section button {
+      font-size: 1.05rem;
+      padding: 12px 0;
+      border-radius: 10px;
+    }
   }

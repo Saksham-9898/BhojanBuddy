@@ -32,11 +32,12 @@ function CoffeeCarousel() {
   ];
 
   return (
-    <div className="coffee-carousel-container">
-      <h2 className="section-title">Flavors from Every Corner</h2>
-      <p className="section-subtitle">
-      Explore top-rated restaurants offering global tastes—because great food has no borders.      </p>
-      <div className="coffee-carousel">
+    <div className="coffee-carousel-container glow-bg animate-fadeInUp">
+      <h2 className="section-title animate-popIn">Flavors from Every Corner</h2>
+      <p className="section-subtitle animate-fadeInLeft">
+        Explore top-rated restaurants offering global tastes—because great food has no borders.
+      </p>
+      <div className="coffee-carousel animate-fadeInUp">
         {coffees.map((coffee, index) => (
           <Rescard
             key={index}

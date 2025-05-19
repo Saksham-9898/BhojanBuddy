@@ -4,40 +4,38 @@ import './Footer.css'
 function Footer() {
   return (
     <>
-    <footer className='footer'>
-    <div className="footer-columns">
-    <div className='company-brand'>
-        <h2>Bhojan Buddy</h2>
-        <p>Discover top-rated restaurants near you by filtering your favorite cuisines. Quick, simple, and made for food lovers on the go.</p>
+    <footer className='footer glow-bg animate-fadeInUp'>
+    <div className="footer-columns animate-fadeInUp">
+    <div className='company-brand animate-fadeInLeft'>
+        <h2 className="animate-popIn">Bhojan Buddy</h2>
+        <p className="animate-fadeInUp">Discover top-rated restaurants near you by filtering your favorite cuisines. Quick, simple, and made for food lovers on the go.</p>
     </div>
-    <div>
-        <h3>Quick links</h3>
+    <div className="animate-fadeInUp">
+        <h3 className="animate-popIn">Quick links</h3>
         <ul>
-            <li><a href='#'>Home</a></li>
-            <li><a>About us</a></li>
-            <li><a>Contact</a></li>
-            <li><a>Privacy policy</a></li>
-            <li><a>Terms & conditions</a></li>
+            <li><a href='#' className="animate-fadeInLeft">Home</a></li>
+            <li><a className="animate-fadeInLeft">About us</a></li>
+            <li><a className="animate-fadeInLeft">Contact</a></li>
+            <li><a className="animate-fadeInLeft">Privacy policy</a></li>
+            <li><a className="animate-fadeInLeft">Terms & conditions</a></li>
         </ul>
     </div>
-    <div>
-        <h3>Contact</h3>
+    <div className="animate-fadeInUp">
+        <h3 className="animate-popIn">Contact</h3>
         <ul>
-            <li> Email: support@bhojanbuddy.com</li>
-            <li> Phone: +1-234-567-8910</li>
-            <li> Location: Rishihood University</li>
+            <li className="animate-fadeInUp"> Email: support@bhojanbuddy.com</li>
+            <li className="animate-fadeInUp"> Phone: +1-234-567-8910</li>
+            <li className="animate-fadeInUp"> Location: Rishihood University</li>
         </ul>
     </div>
-    <div>
-        <h3>Follow us</h3>
+    <div className="animate-fadeInUp">
+        <h3 className="animate-popIn">Follow us</h3>
         <ul>
-            <li><a>Instagram</a></li>
-            <li><a>Twitter</a></li>
+            <li className="animate-fadeInLeft"><a>Instagram</a></li>
+            <li className="animate-fadeInLeft"><a>Twitter</a></li>
         </ul>
     </div>
-
-
-    <div className="footer-bottom">
+    <div className="footer-bottom animate-fadeInUp">
         &copy; 2025 Bhojan Buddy. All rights reserved.
       </div>
     </div>

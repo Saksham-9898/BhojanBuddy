@@ -44,12 +44,14 @@
   color: var(--primary-text);
   margin-bottom: 32px;
   transition:
-    box-shadow 0.2s,
-    transform 0.2s;
+    box-shadow 0.3s,
+    transform 0.3s,
+    border 0.3s;
+  will-change: transform, box-shadow;
 }
 
 .testimonial-card:hover {
-    transform: translateY(-3px) scale(1) rotate(0deg);
+    transform: translateY(-10px) scale(1.03) rotate(-1deg);
     box-shadow: 0 12px 32px 0 #ff6a00, 0 2px 8px 0 #e81cff33;
     border: 2px solid #ff8000;
     z-index: 2;
@@ -57,6 +59,7 @@
 }
 
 .testimonial-card:active {
+  transform: scale(0.98) rotate(0deg);
   box-shadow: 0 4px 12px 0 #40c9ff33;
 }
 
