@@ -5,7 +5,7 @@ import TestimonialCarousel from './TestimonialCarousel'
 import Footer from './Footer'
 import HeroSection from './HeroSection'
 import HowItWorks from './how it works';
-import OTPCard from './OTPCard';
+// import OTPCard from './OTPCard';
 
 function Home() {
   return (
