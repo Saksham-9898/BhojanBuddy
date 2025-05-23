@@ -40,7 +40,7 @@ function Loader() {
               style={{
                 opacity: i < visibleChars ? 1 : 0,
                 transition: 'opacity 0.18s',
-                animationDelay: `${i * 0.08}s`,
+                animationDelay: `${i * 0.1}s`,
               }}
             >
               {char}

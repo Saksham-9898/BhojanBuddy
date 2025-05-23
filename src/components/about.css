@@ -216,6 +216,69 @@
   animation: about-fadeIn 1.2s 0.3s cubic-bezier(.34,1.56,.64,1) both;
 }
 
+.about-ceo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 48px 0 32px 0;
+}
+
+.about-ceo-img {
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 8px 32px #ff800044, 0 2px 8px #40c9ff33;
+  border: 6px solid var(--accent);
+  margin-bottom: 24px;
+  background: #fff;
+}
+
+.about-ceo-heading {
+  font-size: 2.2rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-align: center;
+  margin: 18px 0 0 0;
+  letter-spacing: 1.5px;
+  text-shadow: 0 2px 8px #ff800022;
+  animation: about-ceo-glow 2s infinite alternate;
+}
+
+@keyframes about-ceo-glow {
+  0% {
+    text-shadow: 0 0 16px #ff800099, 0 2px 12px #40c9ff77;
+    filter: drop-shadow(0 0 8px #ff800055);
+  }
+  100% {
+    text-shadow: 0 0 32px #ff8000cc, 0 4px 24px #40c9ffcc;
+    filter: drop-shadow(0 0 16px #ff800099);
+  }
+}
+
+.about-ceo-name-animated .about-ceo-name-marquee {
+  display: inline-block;
+  animation: ceo-name-marquee 5s linear infinite;
+}
+
+@keyframes ceo-name-marquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.about-ceo-socials a {
+  transition: transform 0.2s, filter 0.2s;
+  filter: drop-shadow(0 2px 8px #ff800033);
+}
+.about-ceo-socials a:hover {
+  transform: scale(1.13) rotate(-3deg);
+  filter: drop-shadow(0 4px 16px #ff800099);
+}
+
 @media (max-width: 600px) {
   .about-card {
     padding: 24px 4vw 32px 4vw;

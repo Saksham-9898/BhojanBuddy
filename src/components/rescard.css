@@ -142,6 +142,8 @@
     border: 2px solid #ff8000;
     transform: translateY(-10px) scale(1.03) rotate(-1deg);
     z-index: 2;
+    background: linear-gradient(135deg, rgba(255,128,0,0.18) 0%, rgba(64,201,255,0.13) 100%);
+    transition: background 0.3s, box-shadow 0.3s, border 0.3s, transform 0.3s;
   }
 
   .rescard-content {

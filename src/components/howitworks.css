@@ -1,0 +1,89 @@
+/* howitworks.css - Updated to match site-wide theme */
+.howitworks-section {
+  background: var(--primary-bg);
+  padding: 64px 0 32px 0;
+  text-align: center;
+}
+
+.howitworks-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+}
+
+.howitworks-subtitle {
+  color: var(--muted-text);
+  font-size: 1.2rem;
+  margin-bottom: 2.5rem;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+}
+
+.howitworks-steps {
+  display: flex;
+  justify-content: center;
+  gap: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.howitworks-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--card-border);
+  padding: 2.5rem 2rem 2rem 2rem;
+  width: 260px;
+  transition: box-shadow 0.3s, border 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: var(--primary-text);
+  margin-bottom: 18px;
+}
+
+.howitworks-card:hover {
+  box-shadow: 0 12px 32px 0 #ff6a00, 0 2px 8px 0 #e81cff33;
+  border: 2px solid var(--accent);
+  transform: translateY(-10px) scale(1.03) rotate(-1deg);
+  z-index: 2;
+  background: linear-gradient(135deg, rgba(255,128,0,0.10) 0%, rgba(64,201,255,0.10) 100%);
+}
+
+.howitworks-icon {
+  margin-bottom: 1.2rem;
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.howitworks-step-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-text);
+  margin-bottom: 0.5rem;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.howitworks-step-desc {
+  color: var(--muted-text);
+  font-size: 1.05rem;
+  font-family: 'Poppins', 'Montserrat', sans-serif;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .howitworks-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+  .howitworks-card {
+    width: 90vw;
+    max-width: 350px;
+  }
+}
