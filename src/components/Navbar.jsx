@@ -110,7 +110,7 @@ function Navbar() {
       </div>
         <ul className="nav-links">
         <li><Link to='/'>Home</Link></li>  
-        <li><Link to="#">Explore</Link></li>
+        <li><Link to='/explore'>Explore</Link></li>
         <li><Link to='/About'>About Us</Link></li>  
         <li><Link to='/Contact'>Contact</Link></li> 
         </ul>

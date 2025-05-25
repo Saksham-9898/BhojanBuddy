@@ -6,6 +6,7 @@ import Footer from './Footer'
 import HeroSection from './HeroSection'
 import HowItWorks from './how it works';
 // import OTPCard from './OTPCard';
+import Explore from './Explore';
 
 function Home() {
   return (
@@ -15,6 +16,7 @@ function Home() {
       <div className="animate-fadeInUp"><WhyChooseUs /></div>
       <div className="animate-fadeInUp"><HowItWorks /></div>
       <div className="animate-fadeInUp"><TestimonialCarousel /></div>
+      <div className="animate-fadeInUp"><Explore /></div>
       <div className="animate-fadeInUp"><Footer /></div>
       {/* <div className="animate-fadeInUp"><OTPCard /></div> */}
     </>

@@ -8,6 +8,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Loader from './components/Loader';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+import Explore from './components/Explore';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,10 @@ const router = createBrowserRouter([
   {
     path: '/signup',
     element: <><Navbar/><Signup/><Footer/></>
+  },
+  {
+    path: '/explore',
+    element: <><Navbar/><Explore/><Footer/></>
   },
 ])
 
