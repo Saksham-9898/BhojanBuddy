@@ -7,8 +7,9 @@ import Contact from './components/Contact'
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Loader from './components/Loader';
+import Cart from './components/Cart';
+import { CartProvider } from './context/CartContext';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import Explore from './components/Explore';
 
 const router = createBrowserRouter([
   {
@@ -32,9 +33,9 @@ const router = createBrowserRouter([
     element: <><Navbar/><Signup/><Footer/></>
   },
   {
-    path: '/explore',
-    element: <><Navbar/><Explore/><Footer/></>
-  },
+    path: '/cart',
+    element: <><Navbar/><Cart/><Footer/></>
+  }
 ])
 
 function App() {
@@ -47,7 +48,11 @@ function App() {
   if (loading) {
     return <Loader />;
   }
-  return <RouterProvider router={router} />;
+  return (
+    <CartProvider>
+      <RouterProvider router={router} />
+    </CartProvider>
+  );
 }
 
 export default App

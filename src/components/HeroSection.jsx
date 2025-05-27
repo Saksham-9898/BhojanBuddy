@@ -12,7 +12,7 @@ function HeroSection() {
         <h1 className="animate-popIn">Just a Click Away</h1>
         <p className="animate-fadeInUp">Craving something delicious? 
         Discover top-rated restaurants near you, 
-        from cozy cafes to fine dining. Explore flavors from around the world — 
+        from cozy cafes to fine dining. Flavors from around the world — 
         all in one place. We bring the best options right to your screen.
         </p>
         <button className="order-now-button animate-popIn">Find Your Table Now</button>

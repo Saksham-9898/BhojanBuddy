@@ -1,12 +1,23 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
+import { FaShoppingCart, FaBell, FaUser } from 'react-icons/fa';
+import { useCart } from '../context/CartContext';
 
 function Navbar() {
   const [query, setQuery] = useState("");
   const [showMap, setShowMap] = useState(false);
   const [userLocation, setUserLocation] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
+  const { getCartCount } = useCart();
+  const cartCount = getCartCount();
+  const [showProfileDropdown, setShowProfileDropdown] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // You'll need to implement actual auth logic
+  const [notifications, setNotifications] = useState([
+    { id: 1, text: "Your order #123 is on the way!", type: "order" },
+    { id: 2, text: "50% off on your next order!", type: "promo" }
+  ]);
   const mapRef = useRef(null);
   const [directionsRenderer, setDirectionsRenderer] = useState(null);
   const [directionsService, setDirectionsService] = useState(null);
@@ -102,34 +113,90 @@ function Navbar() {
     }
   };
 
+  const toggleProfileDropdown = () => {
+    setShowProfileDropdown(!showProfileDropdown);
+    setShowNotifications(false);
+  };
+
+  const toggleNotifications = () => {
+    setShowNotifications(!showNotifications);
+    setShowProfileDropdown(false);
+  };
+
   return (
     <>
       <nav className='navbar'>
       <div className="logo">
         <Link to="/" className="logo-link">Bhojan Buddy</Link>
       </div>
-        <ul className="nav-links">
+      <ul className="nav-links">
         <li><Link to='/'>Home</Link></li>  
         <li><Link to='/explore'>Explore</Link></li>
         <li><Link to='/About'>About Us</Link></li>  
         <li><Link to='/Contact'>Contact</Link></li> 
-        </ul>
+      </ul>
+      <div className="nav-right">
         <form onSubmit={handleSearch} style={{display:'flex',alignItems:'center',gap:8}}>
           <input
             type="text"
             className="search-bar"
             placeholder="Search Restaurants..."
             value={query}
-            onChange={e => setQuery(e.target.value)}
-            style={{minWidth:220}}
+            onChange={(e) => setQuery(e.target.value)}
           />
-          <button type="submit" className="signin-btn" style={{padding:'8px 18px',fontSize:'1rem'}}>Search</button>
+          <button type="submit" className="search-button">Search</button>
         </form>
-        <div className="nav-buttons">
-          <Link to="/login" className="signin-btn">Log In</Link>
-          <Link to="/signup" className="signup-btn">Sign Up</Link>
+
+        {/* Cart Icon */}
+        <div className="nav-icon">
+          <Link to="/cart" className="cart-icon">
+            <FaShoppingCart />
+            {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
+          </Link>
         </div>
-      </nav>
+
+        {/* Notifications Icon */}
+        <div className="nav-icon">
+          <div className="notifications-icon" onClick={toggleNotifications}>
+            <FaBell />
+            {notifications.length > 0 && <span className="notification-dot"></span>}
+          </div>
+          {showNotifications && (
+            <div className="notifications-dropdown">
+              <h3>Notifications</h3>
+              {notifications.map(notification => (
+                <div key={notification.id} className={`notification-item ${notification.type}`}>
+                  {notification.text}
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+
+        {/* Profile Icon */}
+        <div className="nav-icon">
+          <div className="profile-icon" onClick={toggleProfileDropdown}>
+            <FaUser />
+          </div>
+          {showProfileDropdown && isLoggedIn && (
+            <div className="profile-dropdown">
+              <Link to="/orders">My Orders</Link>
+              <Link to="/favorites">Favorites</Link>
+              <Link to="/settings">Profile Settings</Link>
+              <button onClick={() => setIsLoggedIn(false)} className="logout-btn">
+                Log Out
+              </button>
+            </div>
+          )}
+          {showProfileDropdown && !isLoggedIn && (
+            <div className="profile-dropdown">
+              <Link to="/login">Login</Link>
+              <Link to="/signup">Sign Up</Link>
+            </div>
+          )}
+        </div>
+      </div>
+    </nav>
       {showMap && (
         <div style={{width:'100%',display:'flex',justifyContent:'center',marginTop:24,flexDirection:'column',alignItems:'center'}}>
           <div ref={mapRef} style={{width:800,height:400,borderRadius:16,boxShadow:'0 4px 32px #0002',marginBottom:16}}></div>
