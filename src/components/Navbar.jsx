@@ -2,19 +2,20 @@ import React, { useState, useEffect, useRef } from 'react';
 import './navbar.css';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaBell, FaUser } from 'react-icons/fa';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 
 function Navbar() {
   const [query, setQuery] = useState("");
   const [showMap, setShowMap] = useState(false);
   const [userLocation, setUserLocation] = useState(null);
   const [mapLoaded, setMapLoaded] = useState(false);
-  const { getCartCount } = useCart();
+  const { getCartCount, cartItems, removeFromCart, updateQuantity } = useCart();
   const cartCount = getCartCount();
+  const [showCartDropdown, setShowCartDropdown] = useState(false);
   const [showProfileDropdown, setShowProfileDropdown] = useState(false);
   const [showNotifications, setShowNotifications] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // You'll need to implement actual auth logic
-  const [notifications, setNotifications] = useState([
+  const [notifications] = useState([
     { id: 1, text: "Your order #123 is on the way!", type: "order" },
     { id: 2, text: "50% off on your next order!", type: "promo" }
   ]);
@@ -134,6 +135,7 @@ function Navbar() {
         <li><Link to='/explore'>Explore</Link></li>
         <li><Link to='/About'>About Us</Link></li>  
         <li><Link to='/Contact'>Contact</Link></li> 
+        <li><Link to='/ourbookings'>Our Bookings</Link></li>
       </ul>
       <div className="nav-right">
         <form onSubmit={handleSearch} style={{display:'flex',alignItems:'center',gap:8}}>
@@ -148,11 +150,64 @@ function Navbar() {
         </form>
 
         {/* Cart Icon */}
-        <div className="nav-icon">
-          <Link to="/cart" className="cart-icon">
+        <div className="nav-icon" style={{ position: 'relative' }}>
+          <div
+            className="cart-icon"
+            style={{ cursor: 'pointer', position: 'relative' }}
+            onClick={() => setShowCartDropdown((prev) => !prev)}
+            tabIndex={0}
+          >
             <FaShoppingCart />
             {cartCount > 0 && <span className="cart-count">{cartCount}</span>}
-          </Link>
+          </div>
+          {showCartDropdown && (
+            <div
+              className="cart-dropdown"
+              style={{
+                position: 'absolute',
+                right: 0,
+                top: '120%',
+                background: '#fff',
+                color: '#232323',
+                minWidth: 260,
+                maxWidth: 340,
+                boxShadow: '0 4px 24px #0002',
+                borderRadius: 12,
+                zIndex: 100,
+                padding: '1rem',
+                fontSize: '1rem',
+              }}
+            >
+              <b style={{ fontSize: '1.1rem' }}>Cart</b>
+              <hr style={{ margin: '0.5rem 0' }} />
+              {cartItems.length === 0 ? (
+                <div style={{ color: '#888', textAlign: 'center', padding: '0.7rem 0' }}>Your cart is empty.</div>
+              ) : (
+                <ul style={{ listStyle: 'none', padding: 0, margin: 0, maxHeight: 220, overflowY: 'auto' }}>
+                  {cartItems.map((item) => (
+                    <li key={item.id} style={{ display: 'flex', alignItems: 'center', marginBottom: 10 }}>
+                      <img src={item.image} alt={item.name} style={{ width: 38, height: 38, borderRadius: 8, objectFit: 'cover', marginRight: 10 }} />
+                      <div style={{ flex: 1 }}>
+                        <div style={{ fontWeight: 600 }}>{item.name}</div>
+                        <div style={{ fontSize: '0.95em', color: '#888' }}>₹{item.price} x {item.quantity}</div>
+                      </div>
+                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2 }}>
+                        <button style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#ff8000', fontSize: 16 }} onClick={() => updateQuantity(item.id, 1)}>+</button>
+                        <span style={{ fontWeight: 500 }}>{item.quantity}</span>
+                        <button style={{ border: 'none', background: 'none', cursor: 'pointer', color: '#ff8000', fontSize: 16 }} onClick={() => updateQuantity(item.id, -1)}>-</button>
+                      </div>
+                      <button style={{ border: 'none', background: 'none', color: '#e74c3c', marginLeft: 8, cursor: 'pointer', fontSize: 18 }} onClick={() => removeFromCart(item.id)} title="Remove">×</button>
+                    </li>
+                  ))}
+                </ul>
+              )}
+              {cartItems.length > 0 && (
+                <Link to="/cart" style={{ display: 'block', marginTop: 12, background: '#ff8000', color: '#fff', borderRadius: 8, padding: '8px 0', textAlign: 'center', fontWeight: 700, textDecoration: 'none' }} onClick={() => setShowCartDropdown(false)}>
+                  Go to Cart
+                </Link>
+              )}
+            </div>
+          )}
         </div>
 
         {/* Notifications Icon */}

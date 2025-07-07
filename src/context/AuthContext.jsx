@@ -1,107 +1,63 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { 
-  createUserWithEmailAndPassword, 
-  signInWithEmailAndPassword,
-  signOut,
-  onAuthStateChanged
-} from 'firebase/auth';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
-import { auth, db } from '../firebase/config';
+import React, { useState } from 'react';
+import { AuthContext } from './AuthContextObject';
 
-const AuthContext = createContext(null);
-
-export const AuthProvider = ({ children }) => {
+const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
-
-  // Monitor auth state
-  useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (firebaseUser) => {
-      if (firebaseUser) {
-        // Get additional user data from Firestore
-        const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
-        setUser({
-          uid: firebaseUser.uid,
-          email: firebaseUser.email,
-          ...userDoc.data()
-        });
-      } else {
-        setUser(null);
-      }
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  const signup = async (email, password, name) => {
-    try {
-      // Create user in Firebase Auth
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const firebaseUser = userCredential.user;
-      
-      // Store additional user data in Firestore
-      const userDocRef = doc(db, 'users', firebaseUser.uid);
-      await setDoc(userDocRef, {
-        name,
-        email,
-        createdAt: new Date().toISOString(),
-      });
-      
-      // Update local user state
-      setUser({
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        name
-      });
-    } catch (error) {
-      throw new Error(error.message);
-    }
-  };
+  const [loading, setLoading] = useState(false);
 
   const login = async (email, password) => {
     try {
-      const { user: firebaseUser } = await signInWithEmailAndPassword(auth, email, password);
-      const userDoc = await getDoc(doc(db, 'users', firebaseUser.uid));
+      setLoading(true);
+      // Simulate login delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      setUser({
-        uid: firebaseUser.uid,
-        email: firebaseUser.email,
-        ...userDoc.data()
-      });
-    } catch (error) {
-      throw new Error(error.message);
+      // Simple validation
+      if (email && password) {
+        setUser({ email, name: email.split('@')[0] });
+        return true;
+      }
+      throw new Error('Invalid credentials');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const signup = async (email, password, name) => {
+    try {
+      setLoading(true);
+      // Simulate signup delay
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      if (email && password && name) {
+        setUser({ email, name });
+        return true;
+      }
+      throw new Error('Invalid signup details');
+    } finally {
+      setLoading(false);
     }
   };
 
   const logout = async () => {
-    try {
-      await signOut(auth);
-      setUser(null);
-    } catch (error) {
-      throw new Error(error.message);
-    }
+    setLoading(true);
+    await new Promise(resolve => setTimeout(resolve, 500));
+    setUser(null);
+    setLoading(false);
   };
 
   return (
-    <AuthContext.Provider value={{ 
-      user, 
-      login, 
-      signup, 
-      logout,
-      loading 
-    }}>
-      {!loading && children}
+    <AuthContext.Provider 
+      value={{
+        user,
+        loading,
+        login,
+        signup,
+        logout
+      }}
+    >
+      {children}
     </AuthContext.Provider>
   );
 };
 
-export const useAuth = () => {
-  const context = useContext(AuthContext);
-  if (!context) {
-    throw new Error('useAuth must be used within an AuthProvider');
-  }
-  return context;
-};
-
-export default AuthContext;
+export { AuthProvider };

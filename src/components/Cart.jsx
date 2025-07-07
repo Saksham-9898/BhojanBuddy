@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 import './cart.css';
 import { FaTrash, FaMinus, FaPlus } from 'react-icons/fa';
 
@@ -29,14 +29,16 @@ function Cart() {
             <div className="cart-item-actions">
               <div className="quantity-controls">
                 <button 
-                  onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                  onClick={() => updateQuantity(item.id, -1)}
                   className="quantity-btn"
+                  disabled={item.quantity === 1}
+                  style={item.quantity === 1 ? { opacity: 0.5, cursor: 'not-allowed' } : {}}
                 >
                   <FaMinus />
                 </button>
                 <span className="quantity">{item.quantity}</span>
                 <button 
-                  onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                  onClick={() => updateQuantity(item.id, 1)}
                   className="quantity-btn"
                 >
                   <FaPlus />

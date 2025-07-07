@@ -1,5 +1,5 @@
 import React from 'react';
-import { useCart } from '../context/CartContext';
+import { useCart } from '../hooks/useCart';
 import './MenuItem.css';
 import { FaPlus } from 'react-icons/fa';
 

@@ -1,0 +1,92 @@
+.bookings-container {
+  max-width: 700px;
+  margin: 7.5rem auto 2rem auto;
+  padding: 2.5rem 2rem 2rem 2rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--card-border);
+  color: var(--primary-text);
+}
+
+
+.bookings-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.bookings-header h2 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stars-row {
+  display: flex;
+  justify-content: center;
+  gap: 0.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.luxury-text {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.booking-card {
+  background: linear-gradient(135deg, #181e2a 70%, var(--accent) 100%);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+  border: 1.5px solid var(--card-border);
+  padding: 1.5rem;
+  color: var(--primary-text);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.booking-card-top {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+}
+
+.table-img {
+  width: 70px;
+  height: 70px;
+  object-fit: cover;
+  border-radius: 16px;
+  box-shadow: 0 2px 12px #0003;
+  border: 2px solid var(--accent);
+  background: #fff;
+}
+
+.booking-card-info {
+  flex: 1;
+}
+
+.booking-card h4 {
+  margin: 0 0 0.5rem 0;
+  color: var(--accent);
+  font-size: 1.3rem;
+}
+
+.booking-card p {
+  margin: 0.2rem 0;
+  color: var(--primary-text);
+  font-size: 1.05rem;
+}
+
+section {
+  margin-bottom: 2.5rem;
+}

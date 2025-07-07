@@ -40,7 +40,7 @@ function Footer() {
         <a href="https://www.instagram.com/saksham._1809/" target="_blank" rel="noopener noreferrer" title="Instagram" style={{display:'inline-block'}}>
           <img src="/instagram.png" alt="Instagram" style={{width:'36px',height:'36px',borderRadius:'8px',boxShadow:'0 2px 8px #ff800088',background:'#fff'}} />
         </a>
-        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" title="Twitter" style={{display:'inline-block'}}>
+        <a href="https://x.com/Saksham_2005_" target="_blank" rel="noopener noreferrer" title="Twitter" style={{display:'inline-block'}}>
           <img src="/twitter.jpg" alt="Twitter" style={{width:'36px',height:'36px',borderRadius:'8px',boxShadow:'0 2px 8px #ff800088',background:'#fff'}} />
         </a>
         <a href="https://www.linkedin.com/in/saksham---sharma/" target="_blank" rel="noopener noreferrer" title="LinkedIn" style={{display:'inline-block'}}>
